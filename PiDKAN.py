@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Sun Mar 16 10:49:55 2025
-
-@author: sagla
-"""
-
 import subprocess
 import os
 import hypParOpt
@@ -17,41 +10,6 @@ import torch.optim as optim
 from torch.optim.swa_utils import AveragedModel, SWALR, update_bn
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-
-# data = pd.read_csv("datasets Karahasan et al. 2025\\dax1.csv")
-
-# m_data = hypParOpt.prepareData(data["y"].values.reshape(-1,1), n_test = 20, lookback = 5, n_val = 20) 
-
-# X_train_tensor = m_data["Train_tensor"][0]
-# y_train_tensor = m_data["Train_tensor"][1]
-
-# input_size = X_train_tensor.shape[1]
-
-# num_synaptic = 7
-# num_dendrite = 2
-# d = 6
-# lambda_soma = 5
-# grid = 12
-# k = 3
-# num_layers = 2
-# output_size = 1
-
-# L_KANSynapses = nn.ModuleList(nn.ModuleList(kan.KANLayer(in_dim = input_size, out_dim = 1, num = grid, k = k) for _ in range(num_synaptic)) for _ in range(num_dendrite))
-# L_Sigmoid = nn.Sigmoid()
-# # self.FC = kan.KANLayer(in_dim = num_dendrite, out_dim = output_size, num = grid, k = k)
-# L_d = d
-# L_lambda_soma = lambda_soma
-
-# x=X_train_tensor
-
-# out_KS_all = [torch.cat([L_Sigmoid(synapse(x)[0]) for synapse in Dendrit], dim = 1) for Dendrit in L_KANSynapses]
-# out_KS_all
-
-
-# out_KD_all = [torch.prod(KS, dim = 1).reshape(x.shape[0],1) for KS in out_KS_all]
-# out_KM = torch.sum(torch.cat(out_KD_all, dim = 1), dim = 1)
-# out_KO = L_Sigmoid(out_KM)
-
 
 class PiDKAN(nn.Module):
     def __init__(
