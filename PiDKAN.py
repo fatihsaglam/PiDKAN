@@ -1,6 +1,3 @@
-import subprocess
-import os
-import hypParOpt
 import pandas as pd
 import numpy as np
 import kan
@@ -156,3 +153,4 @@ def train(
 
      
     return model, train_losses, val_losses
+
